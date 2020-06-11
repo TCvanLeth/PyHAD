@@ -348,30 +348,3 @@ def dt64_to_slice(time):
     if time.dtype.kind == 'M' and time.dtype != '<M8[us]':
         return slice(time, (time+1))
     return time
-
-
-# candidates for deprecation
-###############################################################################
-#def smerge(data, ID_tag=None):
-#    """
-#    merge sequence of Dataset derived objects into one dataset
-#    """
-#    assert isinstance(data[0], cb.Channel)
-#
-#    if ID_tag is not None:
-#        mdat = data[0]
-#        ID = mdat.attrs[ID_tag]
-#        for vID in mdat.data_vars.keys():
-#            mdat = mdat.rename({vID: ID+'_'+vID})
-#        for idat in data[1:]:
-#            ID = idat.attrs[ID_tag]
-#            for vID in idat.data_vars.keys():
-#                idat = idat.rename({vID: ID+'_'+vID})
-#            mdat = mdat.merge(idat)
-#    else:
-#        mdat = data[0]
-#        for idat in data[1:]:
-#            mdat = mdat.merge(idat)
-#
-#    mdat.attrs = merge_attrs(data)
-#    return mdat
