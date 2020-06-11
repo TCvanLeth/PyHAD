@@ -14,7 +14,7 @@ from dask.array.core import Array, normalize_chunks
 from dask.base import tokenize
 import numpy as np
 
-from phad import common
+from pyhad import common
 
 
 def linspace(start, stop, num=50, chunks=None, dtype=None, endpoint=True):

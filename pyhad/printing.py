@@ -6,7 +6,7 @@ Created on Wed Jul 13 16:26:00 2016
 """
 import numpy as np
 
-from phad import common as com
+from pyhad import common as com
 
 
 def get_printvals(values, size, shape, maxlen=80):

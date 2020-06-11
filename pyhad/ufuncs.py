@@ -20,9 +20,9 @@ from numpy import ma
 import scipy.ndimage
 import scipy.special
 
-from phad import common as com
-from phad import indexing
-from phad import resampling
+from pyhad import common as com
+from pyhad import indexing
+from pyhad import resampling
 
 def dafunc(func):
     func = basecompat(func)

@@ -9,8 +9,8 @@ from collections import OrderedDict
 
 import dask.array as da
 
-from phad import common as com
-from phad.variable import Variable
+from pyhad import common as com
+from pyhad.variable import Variable
 
 
 class Variables(OrderedDict):

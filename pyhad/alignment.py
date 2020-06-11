@@ -8,7 +8,7 @@ from collections import OrderedDict
 
 import dask.array as da
 
-import phad.common as com
+import pyhad.common as com
 
 
 def align(datlist):

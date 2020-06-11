@@ -11,12 +11,12 @@ import dask.array as da
 from dask.delayed import Delayed
 import numpy as np
 
-from phad import common as com
-from phad import container_base as cb
-from phad import geometry
-from phad import inout_common as io
-from phad import variable as var
-from phad.attributes import Attributes
+from pyhad import common as com
+from pyhad import container_base as cb
+from pyhad import geometry
+from pyhad import inout_common as io
+from pyhad import variable as var
+from pyhad.attributes import Attributes
 
 
 class Node:

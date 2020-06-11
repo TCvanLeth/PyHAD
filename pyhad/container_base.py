@@ -10,16 +10,16 @@ from collections import OrderedDict
 import dask.array as da
 import numpy as np
 
-from phad import alignment
-from phad import analysis as an
-from phad import common as com
-from phad import inout_common as io
-from phad import plotting as pl
-from phad import ufuncs as uf
-from phad import variable as var
-from phad.attributes import Attributes
-from phad.variable import MetaVar, Variable
-from phad.variables import Variables, Indexes, Coords
+from pyhad import alignment
+from pyhad import analysis as an
+from pyhad import common as com
+from pyhad import inout_common as io
+from pyhad import plotting as pl
+from pyhad import ufuncs as uf
+from pyhad import variable as var
+from pyhad.attributes import Attributes
+from pyhad.variable import MetaVar, Variable
+from pyhad.variables import Variables, Indexes, Coords
 
 
 class Channel:

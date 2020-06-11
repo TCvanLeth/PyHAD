@@ -8,8 +8,8 @@ from collections import OrderedDict
 
 import numpy as np
 
-from phad import common as com
-from phad import printing as pri
+from pyhad import common as com
+from pyhad import printing as pri
 
 
 class Attributes(OrderedDict):

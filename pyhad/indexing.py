@@ -9,7 +9,7 @@ import dask.array as da
 from numba import jit
 import numpy as np
 
-from phad.selection import select
+from pyhad.selection import select
 
 
 def searchdaskuniform(a0, step, n_a, v, how=None, atol=None):
@@ -148,7 +148,7 @@ def searchblocks(a, v, b_indxrs, step, slicers, side='left'):
     def func2b(iv, sli):
         ijv = iv[sli]
         return np.zeros(len(ijv), dtype=int)
-    
+
     dask = dict.merge(a.dask, v.dask)
     dask.update({(name2, j): (func2a, (a.name, j), (v.name, 0), j, sli)
             if j != -1

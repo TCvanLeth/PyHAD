@@ -14,9 +14,9 @@ from matplotlib.patches import ConnectionPatch
 import matplotlib.pyplot as pl
 from scipy import stats
 
-from phad import analysis
-from phad import common
-from phad import ufuncs as uf
+from pyhad import analysis
+from pyhad import common
+from pyhad import ufuncs as uf
 
 
 def plot(x, y, style='o', dim=None, log=False, semilogx=False, semilogy=False,

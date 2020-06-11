@@ -11,8 +11,8 @@ from scipy import stats, optimize
 from sklearn.neighbors import KernelDensity
 from sklearn.model_selection import GridSearchCV
 
-import phad.ufuncs as uf
-from phad.variable import Index
+import pyhad.ufuncs as uf
+from pyhad.variable import Index
 
 
 def semivar(*args, **kwargs):

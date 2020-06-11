@@ -16,7 +16,7 @@ from matplotlib.colors import to_hex
 import matplotlib.pyplot as pl
 from scipy.optimize import curve_fit
 
-from phad import analysis, common, geometry, ufuncs
+from pyhad import analysis, common, geometry, ufuncs
 
 
 thismodule = importlib.import_module(__name__)

@@ -5,7 +5,7 @@ Created on Mon Nov 16 11:24:24 2015
 @author: T.C. van Leth
 """
 
-import phad as ha
+import pyhad.common as com
 
 
 def base_SI(invar):
@@ -125,5 +125,5 @@ def base_SI(invar):
     return outvar
 
 
-class UnitError(ha.common.Error):
+class UnitError(com.Error):
     pass

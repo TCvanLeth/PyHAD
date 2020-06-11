@@ -20,7 +20,7 @@ import h5py
 import numpy as np
 import yaml
 
-from phad import common
+from pyhad import common
 
 
 # hdf5 store

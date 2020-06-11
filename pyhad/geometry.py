@@ -7,8 +7,8 @@ Created on Wed Jul 22 14:30:07 2015
 
 import dask.array as da
 
-from phad import constants as cst
-from phad import ufuncs as uf
+from pyhad import constants as cst
+from pyhad import ufuncs as uf
 
 
 @uf.dafunc

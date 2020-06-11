@@ -11,16 +11,16 @@ from types import FunctionType
 import dask.array as da
 import numpy as np
 
-from phad import common as com
-from phad import creation
-from phad import indexing
-from phad import inout_common as io
-from phad import printing as pri
-from phad import units
-from phad.assignment import assign
-from phad.attributes import Attributes
-from phad.selection import select
-from phad.resampling import reshape
+from pyhad import common as com
+from pyhad import creation
+from pyhad import indexing
+from pyhad import inout_common as io
+from pyhad import printing as pri
+from pyhad import units
+from pyhad.assignment import assign
+from pyhad.attributes import Attributes
+from pyhad.selection import select
+from pyhad.resampling import reshape
 
 
 class Variable(object):

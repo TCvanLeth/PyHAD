@@ -6,7 +6,7 @@ Created on Thu Oct 24 17:14:44 2019
 @author: tcvanleth
 """
 import dask.array as da
-import phad.common as com
+import pyhad.common as com
 
 
 def reshape(a, nstep, mstep, chunksize, aligned=0):
