@@ -91,7 +91,12 @@ def isnull(array, **kwargs):
     if array is None:
         return True
     dtype = array.dtype
-    fill_value = get_fill(dtype)
+
+    # If no null value exists for this data type, then it cannot be null.
+    try:
+        fill_value = get_fill(dtype)
+    except NotImplementedError:
+        return False
     if np.issubdtype(dtype, np.floating) or np.issubdtype(dtype, np.complexfloating):
         if isinstance(array, da.Array):
             return da.isnan(array)
