@@ -1626,7 +1626,7 @@ class MetaChan(Channel):
     treename = 'channel'
     meta = True
 
-    def __init__(self, params=None, attrs=None):
+    def __init__(self, params=None, attrs=None, name='NA'):
         if params:
             self.variables = params
         else:
@@ -1643,6 +1643,8 @@ class MetaChan(Channel):
         if attrs:
             for key, values in attrs.items():
                 self.attrs[key] = values
+
+        self.name = name
 
     def setattrs(self, **kwargs):
         for iparam in self.variables.values():
@@ -1708,7 +1710,27 @@ class MetaChan(Channel):
     def sel(self, **kwargs):
         return self
 
+    def _create_store(self, outh):
+        """
+        write a single channel to the given hdf5 group handle
+        """
+        attrs = self._convert_for_store()
+        attrs.to_store(outh.attrs)
+
+        sources = []
+        targets = []
+        for jname, jvar in self.variables.items():
+            if jvar.name in outh:
+                continue
+            source, target = jvar._create_store(outh)
+            sources.append(source)
+            targets.append(target)
+        return sources, targets
+
     def to_store(self, outh):
+        """
+        Write a single channel to the given yaml group handle.
+        """
         outh['attrs'] = {}
         self.attrs.to_store(outh['attrs'])
         outh['params'] = {}

@@ -1537,10 +1537,23 @@ class MetaVar(Variable):
         string += repr(self.attrs)
         return string
 
+    def _create_store(self, outh, coord=False):
+        """
+        Write a single variable to the given hdf5 group handle.
+        """
+        target = outh.create_dataset(self.name, shape=self.pars.shape,
+                                     dtype=self.pars.dtype)
+
+        self.attrs.to_store(target.attrs)
+        return da.from_array(self.pars), target
+
     def store(self, outpath):
         io.to_yaml(self, outpath)
 
     def to_store(self, outh):
+        """
+        Write a single variable to the given yaml group handle.
+        """
         outh['attrs'] = {}
         self.attrs.to_store(outh['attrs'])
         outh['pars'] = com.np_to_base_type(self.pars)
