@@ -70,14 +70,14 @@ def linregress2(x, y, prob=0.95, **kwargs):
     return da.compute(a0.task, a1, r, stderr, stderr_res.task, stderr_a1.task, c, n)
 
 
-#@uf.hierarch
+@uf.hierarch
 def powerlaw(x, y):
     """
     non-linear powerlaw fit
     """
-    x = x.task.flatten()
-    y = y.task.flatten()
-    cond = (x > 0) & (y > 0)
+    x = x.flatten()
+    y = y.flatten()
+    cond = ~np.isnan(x) & (x > 0) & ~np.isnan(y) & (y > 0)
     x = x[cond].compute()
     y = y[cond].compute()
 
