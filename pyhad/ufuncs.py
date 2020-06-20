@@ -186,10 +186,10 @@ def rolling(func):
 #            depth = depth / stride
 #            size = size / stride
 
-        b = da.ghost.ghost(a, depth, boundary)
+        b = da.overlap.overlap(a, depth, boundary)
         filt = scipy.ndimage.filters.generic_filter
         c = da.map_blocks(filt, b, func, size=size, dtype=a.dtype, extra_arguments=args)
-        return da.ghost.trim_internal(c, depth)
+        return da.overlap.trim_internal(c, depth)
     return nfunc
 
 
@@ -203,10 +203,10 @@ def rollmedian(a, window=10):
     boundary = {i:'reflect' for i in range(a.ndim)}
     origin = tuple(x // 2 - 1 + x % 2 for x in size)
 
-    b = da.ghost.ghost(a, depth, boundary)
+    b = da.overlap.overlap(a, depth, boundary)
     func = scipy.ndimage.filters.median_filter
     c = da.map_blocks(func, b, size=size, dtype=a.dtype)
-    return da.ghost.trim_internal(c, depth)
+    return da.overlap.trim_internal(c, depth)
 
 
 rollmean = dafunc(rolling(np.mean))
@@ -239,10 +239,7 @@ def rollall(a, n, axis=None):
         out[:-n] = (xsum[n:] - xsum[:-n])//n
         return out
 
-    a = da.ghost.ghost(a, depth, boundary)
-    c = da.map_blocks(func, a)
-    c = da.ghost.trim_internal(c, depth)
-    return c
+    return a.map_overlap(func, depth=depth, boundary=boundary)
 
 
 @ufunc
